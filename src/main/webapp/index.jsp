@@ -2,12 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>우리의 첫 번째 페이지</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+    Hello World!
+    <form action="./userJoinAction.jsp" method="post">
+        <input type="text" name="userID">
+        <input type="password" name="userPassword">
+        <input type="submit" value="회원가입">
+    </form>
 </body>
 </html>
