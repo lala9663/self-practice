@@ -96,12 +96,47 @@ public class StudentMenu extends Menu {
         return pw;
     }
 
+    String menuInputName() {
+        Scanner sc = new Scanner(System.in);
+        String name = new String();
+        name = sc.nextLine();
+
+        return name;
+    }
+
+    String menuInputPhoneNum() {
+        Scanner sc = new Scanner(System.in);
+        String phoneNum = new String();
+        phoneNum = sc.nextLine();
+
+        return phoneNum;
+    }
+
+    String menuInputAge() {
+        Scanner sc = new Scanner(System.in);
+        String age = new String();
+        age = sc.next();
+
+        return age;
+    }
+
     void menuLogin() {
         System.out.println("로그인 입니다.");
         String id = menuInputId();
         String pw = menuInputPw();
 
         login.login(id, pw);
+    }
+
+    void menuRegister() {
+        System.out.println("회원가입 입니다.");
+        String id = menuInputId();
+        String pw = menuInputPw();
+        String name = menuInputName();
+        String phoneNum = menuInputPhoneNum();
+        String age = menuInputAge();
+
+        login.register(id, pw, name, phoneNum, age);
     }
 
     void menuLogout() {

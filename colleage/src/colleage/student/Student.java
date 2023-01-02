@@ -5,7 +5,7 @@ public class Student {
     private String pw;
     private String name;
     private String phoneNum;
-    private int age;
+    private String age;
 
     public Student() {
 
@@ -24,7 +24,7 @@ public class Student {
         this.pw = pw;
     }
 
-    public Student(String id, String pw, String name, String phoneNum, int age) {
+    public Student(String id, String pw, String name, String phoneNum, String age) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -75,11 +75,11 @@ public class Student {
         this.phoneNum = phoneNum;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

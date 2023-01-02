@@ -8,7 +8,7 @@ public class Login {
 
     int index = 0;
 
-    void register(String id, String pw, String name, String phoneNum, int age) {
+    public void register(String id, String pw, String name, String phoneNum, String age) {
         Student user = new Student(id, pw, name, phoneNum, age);
         users[index++] = user;
 
