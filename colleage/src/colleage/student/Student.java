@@ -11,6 +11,19 @@ public class Student {
 
     }
 
+    public String userId() {
+        return id;
+    }
+
+    public String userPw() {
+        return pw;
+    }
+
+    public Student(String id, String pw) {
+        this.id = id;
+        this.pw = pw;
+    }
+
     public Student(String id, String pw, String name, String phoneNum, int age) {
         this.id = id;
         this.pw = pw;

@@ -1,5 +1,6 @@
 package colleage.menu;
 
+
 import java.util.Scanner;
 
 public class Menu {
@@ -13,7 +14,7 @@ public class Menu {
 
     public void showMenu() {
         System.out.println("====================");
-        System.out.println("1. 관리자 모드\n + 2.교수 모드\n + 3.학생 모드\n + 4. 종료");
+        System.out.println("1. 관리자 모드\n" + "2.교수 모드\n" + "3.학생 모드\n" + "4. 종료");
         System.out.println("====================");
         System.out.print("Choose One: ");
     }
@@ -21,11 +22,7 @@ public class Menu {
     public Menu setMenu(int chooseNum, Scanner sc) {
         while (true) {
             if (chooseNum == 1) {
-//                return new admin;
-                return new FinishMenu();
             } else if (chooseNum == 2) {
-                return new StudentMenu();
-//                return new professer;
             } else if (chooseNum == 3) {
                 return new StudentMenu();
             } else {
