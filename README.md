@@ -235,7 +235,7 @@ new Swiper('.swiper-container', {
 
 ```html
 <!-- in HEAD -->
-<script defer src="./js/youtube.js"></script>
+<script defer src="../sideProject/src/main/resources/js/youtube.js"></script>
 
 <!-- in BODY -->
 <div id="player"></div>
