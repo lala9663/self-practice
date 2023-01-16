@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(value={"practice.sideproject.mapper"})
+@MapperScan(value={"practice.sideproject.join.mapper"})
 public class SideProjectApplication {
 
     public static void main(String[] args) {
