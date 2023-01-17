@@ -21,14 +21,16 @@
 
     <select id="loginMember" parameterType="HashMap" resultType="HashMap">
         SELECT
-            USER_EMAIL
+            USER_EMAIL,
+            USER_PW
         FROM
             USER_TB
         WHERE
-            USER_EMAIL=#{USER_EMAIL}
+            USER_EMAIL=#{email}
             AND
-            USER_PW = #{USER_PW}
+            USER_PW = #{password}
     </select>
+
 
 
 

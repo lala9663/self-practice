@@ -25,7 +25,7 @@ body{
     width: 100vmin;
     height: 100vmin;
     border-radius: 47% 53% 61% 39% / 45% 51% 49% 55%;
-    background: #65c8ff;
+    background: #036635;
 }
 
 .circle::after{
@@ -36,7 +36,7 @@ body{
     width: inherit;
     height: inherit;
     border-radius: inherit;
-    background: #143d81;
+    background: #036635;
 }
 
 .card{

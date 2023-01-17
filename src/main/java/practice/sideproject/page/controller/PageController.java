@@ -15,4 +15,14 @@ public class PageController {
     public String signup() {
         return "signup";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
 }
