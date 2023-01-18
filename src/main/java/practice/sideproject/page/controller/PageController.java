@@ -21,8 +21,4 @@ public class PageController {
         return "login";
     }
 
-    @GetMapping("/logout")
-    public String logout() {
-        return "logout";
-    }
 }

@@ -43,7 +43,7 @@ public class MemberController {
     }
 
 
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public String logout(HttpSession session) {
         if (session != null) {
             session.invalidate();
