@@ -24,7 +24,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Bean(name = "multipartResolver")
     public CommonsMultipartResolver getResolver() throws IOException {
         CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-        resolver.setMaxUploadSize(1024 * 1024 * 10);    // 10mb
+        resolver.setMaxUploadSize(1024 * 1024 * 10);    // 10MB
         resolver.setUploadTempDir(new FileSystemResource("C:/summernoteImage/"));
         resolver.setDefaultEncoding("UTF-8");
 
