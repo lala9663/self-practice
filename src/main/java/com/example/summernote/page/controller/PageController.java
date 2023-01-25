@@ -8,6 +8,6 @@ public class PageController {
 
     @GetMapping("/")
     public String first() {
-        return "summertest.jsp";
+        return "SummerNote";
     }
 }

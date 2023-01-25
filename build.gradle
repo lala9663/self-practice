@@ -17,7 +17,12 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'commons-io:commons-io:2.11.0'
+	compileOnly 'com.google.code.gson:gson:2.8.9'
+	implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
 }
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()
