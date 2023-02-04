@@ -7,6 +7,7 @@ package com.example.springboot.board.service;
         import lombok.RequiredArgsConstructor;
         import org.springframework.data.domain.Page;
         import org.springframework.data.domain.PageRequest;
+        import org.springframework.data.domain.Sort;
         import org.springframework.stereotype.Service;
         import org.springframework.transaction.annotation.Transactional;
 
@@ -64,5 +65,10 @@ public class BoardService {
     public void deleteById(Long id) {
         boardRepository.deleteById(id);
     }
+
+    public void deleteAll(Long[] deleteId) {
+        boardRepository.deleteBoard(deleteId);
+    }
+
 
 }

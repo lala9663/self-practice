@@ -1,13 +1,16 @@
 package com.example.springboot.board.controller;
 
 import com.example.springboot.board.dto.BoardRequestDto;
+import com.example.springboot.board.entity.Board;
 import com.example.springboot.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.modelmbean.ModelMBeanOperationInfo;
 import java.awt.print.Pageable;
 
 @RequiredArgsConstructor
@@ -28,6 +31,7 @@ public class BoardController {
 
         return "board/list";
     }
+
 
     @GetMapping("/board/write")
     public String getBoardWritePage(Model model, BoardRequestDto boardRequestDto) {
@@ -51,7 +55,7 @@ public class BoardController {
         try {
             Long result = boardService.save(boardRequestDto);
 
-            if (result < 0) {
+            if (result < 1) {
                 throw new Exception("#Exception boardWriteAction!");
             }
         } catch (Exception e) {
@@ -60,5 +64,24 @@ public class BoardController {
         return "redirect:board/list";
     }
 
-    
+    @PostMapping("/board/view/delete")
+    public String boardViewDeleteAction(Model model, @RequestParam() Long id) throws Exception {
+        try {
+            boardService.deleteById(id);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+        return "redirect:/board/list";
+    }
+
+    @PostMapping("/board/delete")
+    public String boardDeleteAction(Model model, @RequestParam() Long[] deleteId) throws Exception {
+        try {
+            boardService.deleteAll(deleteId);
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+        return "redirect:/board/list";
+    }
+
 }
