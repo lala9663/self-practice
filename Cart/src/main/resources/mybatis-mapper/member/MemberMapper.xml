@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="practice.sideproject.join.mapper.MemberMapper">
+  <insert id="insertMember" parameterType="HashMap">
+      INSERT INTO USER_TB
+        (
+            USER_EMAIL,
+            USER_NAME,
+            USER_PW,
+            USER_PHONE
+        )
+        VALUES
+        (
+            #{USER_EMAIL}
+            ,#{USER_NAME}
+            ,#{USER_PW}
+            ,#{USER_PHONE}
+        )
+  </insert>
+
+    <select id="loginMember" parameterType="HashMap" resultType="HashMap">
+        SELECT
+            USER_EMAIL,
+            USER_PW
+        FROM
+            USER_TB
+        WHERE
+            USER_EMAIL=#{email}
+            AND
+            USER_PW = #{password}
+    </select>
+
+
+
+
+
+
+</mapper>
