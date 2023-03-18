@@ -2,7 +2,9 @@ package com.example.jwt.global.config;
 
 import com.example.jwt.auth.security.APIUserDetailService;
 import com.example.jwt.auth.security.filter.APILoginFilter;
+import com.example.jwt.auth.security.filter.TokenCheckFilter;
 import com.example.jwt.auth.security.handler.APILoginSuccessHandler;
+import com.example.jwt.auth.util.JWTUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -30,6 +32,7 @@ public class CustomSecurityConfig {
     //주입
     private final APIUserDetailService apiUserDetailsService;
 
+    private final JWTUtil jwtUtil;
 
 
     @Bean
@@ -69,7 +72,7 @@ public class CustomSecurityConfig {
 
 
         //APILoginSuccessHandler
-        APILoginSuccessHandler successHandler = new APILoginSuccessHandler();
+        APILoginSuccessHandler successHandler = new APILoginSuccessHandler(jwtUtil);
         //SuccessHandler 세팅
         apiLoginFilter.setAuthenticationSuccessHandler(successHandler);
 
@@ -77,12 +80,12 @@ public class CustomSecurityConfig {
         //APILoginFilter의 위치 조정
         http.addFilterBefore(apiLoginFilter, UsernamePasswordAuthenticationFilter.class);
 
-//        //api로 시작하는 모든 경로는 TokenCheckFilter 동작
-//        http.addFilterBefore(
-//                tokenCheckFilter(jwtUtil, apiUserDetailsService),
-//                UsernamePasswordAuthenticationFilter.class
-//        );
-//
+        //api로 시작하는 모든 경로는 TokenCheckFilter 동작
+        http.addFilterBefore(
+                tokenCheckFilter(jwtUtil),
+                UsernamePasswordAuthenticationFilter.class
+        );
+
 //        //refreshToken 호출 처리
 //        http.addFilterBefore(new RefreshTokenFilter("/refreshToken", jwtUtil),
 //                TokenCheckFilter.class);
@@ -96,5 +99,9 @@ public class CustomSecurityConfig {
 
         return http.build();
 
+    }
+
+    private TokenCheckFilter tokenCheckFilter(JWTUtil jwtUtil) {
+        return new TokenCheckFilter(jwtUtil);
     }
 }

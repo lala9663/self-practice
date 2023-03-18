@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/sample")
 public class SampleController {
 
-    @ApiOperation("/Smaple GET doA")
+    @ApiOperation("/Sample GET doA")
     @GetMapping("doA")
     public List<String> doA() {
         return Arrays.asList("AAA", "BBB", "CCC");
