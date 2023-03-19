@@ -66,11 +66,13 @@ public class SecurityConfig {
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-
+//        "/api/hello", "/api/authenticate", "/api/signup"
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/hello", "/api/authenticate", "/api/signup").permitAll()
-                .requestMatchers(PathRequest.toH2Console()).permitAll()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                .antMatchers("/api/hello").permitAll()
+                .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/signup").permitAll()
                 .anyRequest().authenticated()
 
                 .and()
