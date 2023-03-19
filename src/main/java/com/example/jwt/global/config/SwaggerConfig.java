@@ -35,7 +35,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Boot API 01 Project Swagger")
+                .title("스웨서 설정 연습")
                 .build();
     }
 
@@ -45,7 +45,7 @@ public class SwaggerConfig {
 
     private SecurityContext securityContext() {
         return SecurityContext.builder().securityReferences(defaultAuth())
-                .operationSelector(selector -> selector.requestMappingPattern().startsWith("/")).build();
+                .operationSelector(selector -> selector.requestMappingPattern().startsWith("/api/")).build();
     }
     private List<SecurityReference> defaultAuth() {
         AuthorizationScope authorizationScope = new AuthorizationScope("global", "global access");

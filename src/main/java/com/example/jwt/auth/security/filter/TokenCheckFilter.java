@@ -27,7 +27,7 @@ public class TokenCheckFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
         String path = request.getRequestURI();
 
-        if (!path.startsWith("/")) {
+        if (!path.startsWith("/api/")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -41,7 +41,7 @@ public class TokenCheckFilter extends OncePerRequestFilter {
         } catch (AccessTokenException accessTokenException) {
             accessTokenException.sendResponseError(response);
         }
-                                    }
+    }
 
     private Map<String, Object> validateAccessToken(HttpServletRequest request) throws AccessTokenException {
 

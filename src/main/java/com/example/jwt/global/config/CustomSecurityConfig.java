@@ -90,8 +90,8 @@ public class CustomSecurityConfig {
 //        http.addFilterBefore(new RefreshTokenFilter("/refreshToken", jwtUtil),
 //                TokenCheckFilter.class);
 
-        http.csrf().disable();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.csrf().disable();  // <-  CSRF 토큰의 비활성화
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);    // <- 세션을 사용하지않음
 
 //        http.cors(httpSecurityCorsConfigurer -> {
 //            httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource());

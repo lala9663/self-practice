@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sample")
+@RequestMapping("/api/sample")
 public class SampleController {
 
     @ApiOperation("/Sample GET doA")
