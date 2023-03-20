@@ -1,6 +1,7 @@
 package com.example.redis.v1.service;
 
 
+import com.example.redis.entity.BaseTime;
 import com.example.redis.entity.Users;
 import com.example.redis.enums.Authority;
 import com.example.redis.jwt.JwtTokenProvider;
@@ -45,10 +46,15 @@ public class UsersService {
         Users user = Users.builder()
                 .email(signUp.getEmail())
                 .password(passwordEncoder.encode(signUp.getPassword()))
+                .nickname(signUp.getNickname())
+                .phoneNumber(signUp.getPhoneNumber())
+                .birthDate(signUp.getBirthDate())
+                .hobby(signUp.getHobby())
                 .roles(Collections.singletonList(Authority.ROLE_USER.name()))
                 .build();
         usersRepository.save(user);
-        System.out.println("아이디: " + user.getEmail() + "비밀번호: " + user.getPassword() + "생일: " + user.getBirthDate() + "취미: " + user.getHobby());
+        System.out.println("아이디: " + user.getEmail() + " 비밀번호: " + user.getPassword() + "생일: "
+                + user.getBirthDate() + " 취미: " + user.getHobby());
 
         return response.success("회원가입에 성공했습니다.");
     }

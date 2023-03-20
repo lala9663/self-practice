@@ -44,13 +44,13 @@ public class Users extends BaseTime implements UserDetails {
     @Column(name = "hobby")
     private String hobby;
 
-    @CreationTimestamp
-    @Column(name = "created_date")
-    private LocalDateTime created_date;
-
-    @UpdateTimestamp
-    @Column(name = "updated_date")
-    private LocalDateTime updated_date;
+//    @CreationTimestamp
+//    @Column(name = "created_date")
+//    private LocalDateTime created_date;
+//
+//    @UpdateTimestamp
+//    @Column(name = "updated_date")
+//    private LocalDateTime updated_date;
 
     @Column
     @ElementCollection(fetch = FetchType.EAGER)

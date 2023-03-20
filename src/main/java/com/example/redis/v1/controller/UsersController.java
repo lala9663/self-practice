@@ -12,10 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,7 +25,7 @@ public class UsersController {
     private final Response response;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signUp(@Validated UserRequestDto.SignUp signUp, Errors errors) {
+    public ResponseEntity<?> signUp(@Validated @RequestBody UserRequestDto.SignUp signUp, Errors errors) {
         // validation check
         if (errors.hasErrors()) {
             return response.invalidFields(Helper.refineErrors(errors));
@@ -37,7 +34,7 @@ public class UsersController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Validated UserRequestDto.Login login, Errors errors) {
+    public ResponseEntity<?> login(@Validated @RequestBody UserRequestDto.Login login, Errors errors) {
         // validation check
         if (errors.hasErrors()) {
             return response.invalidFields(Helper.refineErrors(errors));
