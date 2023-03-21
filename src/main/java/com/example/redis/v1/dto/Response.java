@@ -13,6 +13,8 @@ import java.util.LinkedList;
 @Component
 public class Response {
 
+
+
     @Getter
     @Builder
     private static class Body {
@@ -23,6 +25,17 @@ public class Response {
         private Object data;
         private Object error;
     }
+
+//    public ResponseEntity<?> success(Object data, String msg, HttpStatus status) {
+//        Body body = Body.builder()
+//                .state(status.value())
+//                .data(data)
+//                .result("success")
+//                .massage(msg)
+//                .error(Collections.emptyList())
+//                .build();
+//        return ResponseEntity.ok(body);
+//    }
 
     public ResponseEntity<?> success(Object data, String msg, HttpStatus status) {
         Body body = Body.builder()
@@ -50,6 +63,10 @@ public class Response {
      * @param msg 응답 바디 message 필드에 포함될 정보
      * @return 응답 객체
      */
+//    public ResponseEntity<?> success(String msg) {
+//        return success(Collections.emptyList(), msg, HttpStatus.OK);
+//    }
+
     public ResponseEntity<?> success(String msg) {
         return success(Collections.emptyList(), msg, HttpStatus.OK);
     }
@@ -69,10 +86,13 @@ public class Response {
      * @param data 응답 바디 data 필드에 포함될 정보
      * @return 응답 객체
      */
+//    public ResponseEntity<?> success(Object data) {
+//        return success(data, null, HttpStatus.OK);
+//    }
+
     public ResponseEntity<?> success(Object data) {
         return success(data, null, HttpStatus.OK);
     }
-
     /**
      * <p> 성공 응답만 반환한다. </p>
      * <pre>
@@ -87,9 +107,24 @@ public class Response {
      *
      * @return 응답 객체
      */
+//    public ResponseEntity<?> success() {
+//        return success(Collections.emptyList(), null, HttpStatus.OK);
+//    }
+
     public ResponseEntity<?> success() {
         return success(Collections.emptyList(), null, HttpStatus.OK);
     }
+
+//    public ResponseEntity<?> fail(Object data, String msg, HttpStatus status) {
+//        Body body = Body.builder()
+//                .state(status.value())
+//                .data(data)
+//                .result("fail")
+//                .massage(msg)
+//                .error(Collections.emptyList())
+//                .build();
+//        return ResponseEntity.ok(body);
+//    }
 
     public ResponseEntity<?> fail(Object data, String msg, HttpStatus status) {
         Body body = Body.builder()
@@ -101,7 +136,6 @@ public class Response {
                 .build();
         return ResponseEntity.ok(body);
     }
-
     /**
      * <p> 메세지를 가진 실패 응답을 반환한다. </p>
      * <pre>
@@ -118,9 +152,24 @@ public class Response {
      * @param status 응답 바디 status 필드에 포함될 응답 상태 코드
      * @return 응답 객체
      */
+//    public ResponseEntity<?> fail(String msg, HttpStatus status) {
+//        return fail(Collections.emptyList(), msg, status);
+//    }
+
     public ResponseEntity<?> fail(String msg, HttpStatus status) {
         return fail(Collections.emptyList(), msg, status);
     }
+
+//    public ResponseEntity<?> invalidFields(LinkedList<LinkedHashMap<String, String>> errors) {
+//        Body body = Body.builder()
+//                .state(HttpStatus.BAD_REQUEST.value())
+//                .data(Collections.emptyList())
+//                .result("fail")
+//                .massage("")
+//                .error(errors)
+//                .build();
+//        return ResponseEntity.ok(body);
+//    }
 
     public ResponseEntity<?> invalidFields(LinkedList<LinkedHashMap<String, String>> errors) {
         Body body = Body.builder()

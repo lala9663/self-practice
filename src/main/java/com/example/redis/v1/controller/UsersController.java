@@ -3,6 +3,7 @@ package com.example.redis.v1.controller;
 
 import com.example.redis.jwt.JwtTokenProvider;
 import com.example.redis.v1.dto.Response;
+import com.example.redis.v1.dto.ResponseDto;
 import com.example.redis.v1.dto.request.UserRequestDto;
 import com.example.redis.lib.Helper;
 import com.example.redis.v1.service.UsersService;
@@ -33,17 +34,25 @@ public class UsersController {
         return usersService.signUp(signUp);
     }
 
+//    @PostMapping("/login")
+//    public ResponseEntity<?> login(@Validated @RequestBody UserRequestDto.Login login, Errors errors) {
+//        // validation check
+//        if (errors.hasErrors()) {
+//            return response.invalidFields(Helper.refineErrors(errors));
+//        }
+//        return usersService.login(login);
+//    }
+
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Validated @RequestBody UserRequestDto.Login login, Errors errors) {
+    public ResponseDto<?> login(@Validated @RequestBody UserRequestDto.Login login, Errors errors) {
         // validation check
         if (errors.hasErrors()) {
-            return response.invalidFields(Helper.refineErrors(errors));
+            return new ResponseDto<>(Helper.refineErrors(errors));
         }
         return usersService.login(login);
     }
-
     @PostMapping("/reissue")
-    public ResponseEntity<?> reissue(@Validated UserRequestDto.Reissue reissue, Errors errors) {
+    public ResponseEntity<?> reissue(@Validated @RequestBody UserRequestDto.Reissue reissue, Errors errors) {
         // validation check
         if (errors.hasErrors()) {
             return response.invalidFields(Helper.refineErrors(errors));
@@ -52,7 +61,7 @@ public class UsersController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(@Validated UserRequestDto.Logout logout, Errors errors) {
+    public ResponseEntity<?> logout(@Validated @RequestBody UserRequestDto.Logout logout, Errors errors) {
         // validation check
         if (errors.hasErrors()) {
             return response.invalidFields(Helper.refineErrors(errors));
