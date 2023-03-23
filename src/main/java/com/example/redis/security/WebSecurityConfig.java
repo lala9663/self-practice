@@ -29,9 +29,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/users/sign-up", "/api/v1/users/login", "/api/v1/users/authority", "/api/v1/users/reissue", "/api/v1/users/logout").permitAll()
-                .antMatchers("/api/v1/users/userTest").hasRole("USER")
-                .antMatchers("/api/v1/users/adminTest").hasRole("ADMIN")
+                .antMatchers("/members", "/login", "/authority", "/reissue", "/members/logout").permitAll()
+                .antMatchers("/userTest").hasRole("USER")
+                .antMatchers("/adminTest").hasRole("ADMIN")
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, redisTemplate), UsernamePasswordAuthenticationFilter.class);
                 // JwtAuthenticationFilter를 UsernamePasswordAuthentictaionFilter 전에 적용시킨다.

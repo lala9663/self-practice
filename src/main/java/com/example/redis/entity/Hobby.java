@@ -1,0 +1,17 @@
+package com.example.redis.entity;
+
+public enum Hobby {
+    FISHING("낚시"),
+    SHOPPING("쇼핑"),
+    GOLF("골프"),
+    WINE("와인"),
+    VOLUNTEER("봉사활동"),
+    TREKKING("트레킹");
+
+
+    String korean;
+
+    Hobby(String korean) {
+        this.korean = korean;
+    }
+}
